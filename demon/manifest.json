@@ -1,0 +1,60 @@
+{
+   "action": {
+      "default_popup": "index.html",
+      "default_title": "Demon Wallet"
+   },
+   "author": "RENEC Labs",
+   "background": {
+      "service_worker": "background.js",
+      "type": "module"
+   },
+   "commands": {
+      "_execute_action": {
+         "description": "Command for quickly open wallet extension",
+         "global": true,
+         "suggested_key": {
+            "chromeos": "Alt+Shift+R",
+            "default": "Alt+Shift+R",
+            "linux": "Alt+Shift+R",
+            "mac": "Alt+Shift+R",
+            "windows": "Alt+Shift+R"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "exclude_matches": [  ],
+      "js": [ "content.js" ],
+      "match_about_blank": true,
+      "matches": [ "file://*/*", "http://*/*", "https://*/*", "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+   },
+   "description": "A Crypto Wallet Dedicated for the Web3",
+   "differential_fingerprint": "1.82d7068843dd4e951ab3581e2691b5fb78f404c6985d52a0ae8d589bd1dadfd8",
+   "externally_connectable": {
+      "matches": [ "file://*/*", "http://*/*", "https://*/*" ]
+   },
+   "host_permissions": [ "file://*/*", "http://*/*", "https://*/*" ],
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png"
+   },
+   "incognito": "spanning",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsQmoNprRFYAAv24OL/dYlkock+sX9hkQ81sy4u5Q/+iElmjGem4BxYe5X3kwjSer6FN5RwzqFS7FQt+NZmGgRWtkz0Ga59mcquTGccYoWUK2a/WyH4ScX/YOJEgaZYs/XIOLlg2QLqu+MgdHDFlu2qZzTPVWK1V9/DtoaFhZFM/APkO3UFUdKOvW9RE3HOVXi5nO+hqEBrdxuJ+/Qc6EM3tgmMsB9z9IM7zfevKAJJUzm6ZteQCEscNB0po6aKUImcze4+wQ0p0SyPmKQ1lKIWhG2dN4JztIoDGsN1pwt/qKwC7hKI5jZ1xQXFZS0n3gNRCG51ksbXfulai/qkZPmQIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "88",
+   "name": "Demon Wallet",
+   "permissions": [ "storage", "identity" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.12.0",
+   "version_name": "1.12.0",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "inpage.js" ]
+   } ]
+}

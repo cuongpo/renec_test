@@ -6,7 +6,7 @@ export const test = base.extend<{
   extensionId: string;
 }>({
   context: async ({ }, use) => {
-    const pathToExtension = path.join('C:/Users/nguye/AppData/Local/Google/Chrome/User Data/Profile 1/Extensions/mdjmfdffdcmnoblignmgpommbefadffd/1.12.0_0');
+    const pathToExtension = require('path').join(__dirname, 'demon');
     const context = await chromium.launchPersistentContext('', {
       headless: false,
       args: [
